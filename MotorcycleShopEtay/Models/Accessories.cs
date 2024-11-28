@@ -1,8 +1,13 @@
 ﻿namespace MotorcycleShopEtay.Models
 {
-    public class Accessories: Products
+    public enum SizeAccessories
+    {
+        XS,S,M,L,XL
+    }
+    public class Accessorie: Product
     {
         public string Description { get; set; }
-        public ICollection<Products> Products { get; set; }
+        public SizeAccessories? size { get; set; }
+        
     }
 }

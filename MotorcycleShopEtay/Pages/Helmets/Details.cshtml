@@ -1,0 +1,55 @@
+﻿@page
+@model MotorcycleShopEtay.Pages.Helmets.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Helmet</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helmet.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helmet.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helmet.Color)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helmet.Color)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helmet.HelmetSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helmet.HelmetSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helmet.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helmet.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helmet.Brend)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helmet.Brend)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Helmet.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Helmet.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Helmet.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

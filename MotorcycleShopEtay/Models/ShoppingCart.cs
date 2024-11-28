@@ -1,14 +1,14 @@
-﻿namespace MotorcycleShopEtay.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MotorcycleShopEtay.Models
 {
     public class ShoppingCart
     {
+        public int Id { get; set; }
         public int ShoppingId { get; set; }
-        public int MotorcycleId { get; set; }
-        public Motorcycle Motorcycle { get; set; }
-        public int HelmetsId { get; set; }
-        public Helmets Helmets { get; set; }
-        public int AccessoriesId { get; set; }
-        public Accessories Accessories { get; set; }
-        public DateTime ShopingDate { get; set; }
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+        public DateTime ShoppingDate { get; set; }
+        ICollection<Product> Products { get; set; }
     }
 }

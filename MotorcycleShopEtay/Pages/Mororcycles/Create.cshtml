@@ -1,0 +1,74 @@
+﻿@page
+@model MotorcycleShopEtay.Pages.Mororcycles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Motorcycle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Engine" class="control-label"></label>
+                <input asp-for="Motorcycle.Engine" class="form-control" />
+                <span asp-validation-for="Motorcycle.Engine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.MaxSpeed" class="control-label"></label>
+                <input asp-for="Motorcycle.MaxSpeed" class="form-control" />
+                <span asp-validation-for="Motorcycle.MaxSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.NumGearShift" class="control-label"></label>
+                <input asp-for="Motorcycle.NumGearShift" class="form-control" />
+                <span asp-validation-for="Motorcycle.NumGearShift" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Color" class="control-label"></label>
+                <input asp-for="Motorcycle.Color" class="form-control" />
+                <span asp-validation-for="Motorcycle.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Gear" class="control-label"></label>
+                <input asp-for="Motorcycle.Gear" class="form-control" />
+                <span asp-validation-for="Motorcycle.Gear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Type" class="control-label"></label>
+                <input asp-for="Motorcycle.Type" class="form-control" />
+                <span asp-validation-for="Motorcycle.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Name" class="control-label"></label>
+                <input asp-for="Motorcycle.Name" class="form-control" />
+                <span asp-validation-for="Motorcycle.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Brend" class="control-label"></label>
+                <input asp-for="Motorcycle.Brend" class="form-control" />
+                <span asp-validation-for="Motorcycle.Brend" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Price" class="control-label"></label>
+                <input asp-for="Motorcycle.Price" class="form-control" />
+                <span asp-validation-for="Motorcycle.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

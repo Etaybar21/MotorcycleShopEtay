@@ -1,0 +1,59 @@
+﻿@page
+@model MotorcycleShopEtay.Pages.Helmets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Helmet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Helmet.Type" class="control-label"></label>
+                <input asp-for="Helmet.Type" class="form-control" />
+                <span asp-validation-for="Helmet.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.Color" class="control-label"></label>
+                <input asp-for="Helmet.Color" class="form-control" />
+                <span asp-validation-for="Helmet.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.HelmetSize" class="control-label"></label>
+                <input asp-for="Helmet.HelmetSize" class="form-control" />
+                <span asp-validation-for="Helmet.HelmetSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.Name" class="control-label"></label>
+                <input asp-for="Helmet.Name" class="form-control" />
+                <span asp-validation-for="Helmet.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.Brend" class="control-label"></label>
+                <input asp-for="Helmet.Brend" class="form-control" />
+                <span asp-validation-for="Helmet.Brend" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.Price" class="control-label"></label>
+                <input asp-for="Helmet.Price" class="form-control" />
+                <span asp-validation-for="Helmet.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
