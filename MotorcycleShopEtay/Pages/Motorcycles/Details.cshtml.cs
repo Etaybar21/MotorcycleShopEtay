@@ -8,18 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using MotorcycleShopEtay.Deta;
 using MotorcycleShopEtay.Models;
 
-namespace MotorcycleShopEtay.Pages.Mororcycles
+namespace MotorcycleShopEtay.Pages.Motorcycles
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly MotorcycleShopEtay.Deta.MotorcycleShopContext _context;
 
-        public DeleteModel(MotorcycleShopEtay.Deta.MotorcycleShopContext context)
+        public DetailsModel(MotorcycleShopEtay.Deta.MotorcycleShopContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
         public Motorcycle Motorcycle { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -30,7 +29,6 @@ namespace MotorcycleShopEtay.Pages.Mororcycles
             }
 
             var motorcycle = await _context.Motorcycles.FirstOrDefaultAsync(m => m.Id == id);
-
             if (motorcycle == null)
             {
                 return NotFound();
@@ -40,24 +38,6 @@ namespace MotorcycleShopEtay.Pages.Mororcycles
                 Motorcycle = motorcycle;
             }
             return Page();
-        }
-
-        public async Task<IActionResult> OnPostAsync(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var motorcycle = await _context.Motorcycles.FindAsync(id);
-            if (motorcycle != null)
-            {
-                Motorcycle = motorcycle;
-                _context.Motorcycles.Remove(Motorcycle);
-                await _context.SaveChangesAsync();
-            }
-
-            return RedirectToPage("./Index");
         }
     }
 }

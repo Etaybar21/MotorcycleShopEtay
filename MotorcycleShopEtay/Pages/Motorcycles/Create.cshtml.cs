@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MotorcycleShopEtay.Deta;
 using MotorcycleShopEtay.Models;
 
-namespace MotorcycleShopEtay.Pages.Mororcycles
+namespace MotorcycleShopEtay.Pages.Motorcycles
 {
     public class CreateModel : PageModel
     {

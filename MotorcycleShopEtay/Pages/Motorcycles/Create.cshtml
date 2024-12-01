@@ -1,11 +1,11 @@
 ﻿@page
-@model MotorcycleShopEtay.Pages.Mororcycles.EditModel
+@model MotorcycleShopEtay.Pages.Motorcycles.CreateModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
 <h4>Motorcycle</h4>
 <hr />
@@ -43,7 +43,6 @@
                 <input asp-for="Motorcycle.Type" class="form-control" />
                 <span asp-validation-for="Motorcycle.Type" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="Motorcycle.Id" />
             <div class="form-group">
                 <label asp-for="Motorcycle.Name" class="control-label"></label>
                 <input asp-for="Motorcycle.Name" class="form-control" />
@@ -60,14 +59,14 @@
                 <span asp-validation-for="Motorcycle.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
