@@ -90,6 +90,29 @@ namespace MotorcycleShopEtay.Migrations
                     b.UseTphMappingStrategy();
                 });
 
+            modelBuilder.Entity("MotorcycleShopEtay.Models.Purchase", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShoppingCartId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("ShoppingCartId");
+
+                    b.ToTable("purchases");
+                });
+
             modelBuilder.Entity("MotorcycleShopEtay.Models.ShoppingCart", b =>
                 {
                     b.Property<int>("Id")
@@ -175,6 +198,25 @@ namespace MotorcycleShopEtay.Migrations
                         .HasColumnType("int");
 
                     b.HasDiscriminator().HasValue("Motorcycle");
+                });
+
+            modelBuilder.Entity("MotorcycleShopEtay.Models.Purchase", b =>
+                {
+                    b.HasOne("MotorcycleShopEtay.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MotorcycleShopEtay.Models.ShoppingCart", "ShoppingCart")
+                        .WithMany()
+                        .HasForeignKey("ShoppingCartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("ShoppingCart");
                 });
 
             modelBuilder.Entity("MotorcycleShopEtay.Models.ShoppingCart", b =>

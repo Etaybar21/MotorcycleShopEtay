@@ -13,6 +13,7 @@ namespace MotorcycleShopEtay.Deta
         public DbSet<Accessorie> Accessories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Purchase> purchases { get; set; }
         public DbSet<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

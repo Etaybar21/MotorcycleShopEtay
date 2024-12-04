@@ -79,6 +79,42 @@ namespace MotorcycleShopEtay.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "purchases",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    ShoppingCartId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_purchases", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_purchases_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_purchases_ShoppingCarts_ShoppingCartId",
+                        column: x => x.ShoppingCartId,
+                        principalTable: "ShoppingCarts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_purchases_ProductId",
+                table: "purchases",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_purchases_ShoppingCartId",
+                table: "purchases",
+                column: "ShoppingCartId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCarts_CustomerId",
                 table: "ShoppingCarts",
@@ -88,6 +124,9 @@ namespace MotorcycleShopEtay.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "purchases");
+
             migrationBuilder.DropTable(
                 name: "Products");
 

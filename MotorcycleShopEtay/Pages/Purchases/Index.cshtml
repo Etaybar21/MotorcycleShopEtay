@@ -1,11 +1,11 @@
 ﻿@page
-@model MotorcycleShopEtay.Pages.ShoppingCarts.IndexModel
+@model MotorcycleShopEtay.Pages.Purchases.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>עגלת קניות</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,28 +14,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].ShoppingId)
+                @Html.DisplayNameFor(model => model.Purchase[0].Product)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].Customer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCart[0].ShoppingDate)
+                @Html.DisplayNameFor(model => model.Purchase[0].ShoppingCart)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ShoppingCart) {
+@foreach (var item in Model.Purchase) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ShoppingId)
+                @Html.DisplayFor(modelItem => item.Product.Discriminator)
             </td>
             <td>
-                    @Html.DisplayFor(modelItem => item.Customer.CustomerID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShoppingDate)
+                @Html.DisplayFor(modelItem => item.ShoppingCart.Id)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

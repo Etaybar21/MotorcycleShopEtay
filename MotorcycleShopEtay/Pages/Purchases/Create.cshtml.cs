@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using MotorcycleShopEtay.Deta;
 using MotorcycleShopEtay.Models;
 
-namespace MotorcycleShopEtay.Pages.ShoppingCarts
+namespace MotorcycleShopEtay.Pages.Purchases
 {
     public class CreateModel : PageModel
     {
@@ -21,12 +21,13 @@ namespace MotorcycleShopEtay.Pages.ShoppingCarts
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "CustomerID");
+        ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Discriminator");
+        ViewData["ShoppingCartId"] = new SelectList(_context.ShoppingCarts, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public ShoppingCart ShoppingCart { get; set; } = default!;
+        public Purchase Purchase { get; set; } = default!;
 
         // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
@@ -36,7 +37,7 @@ namespace MotorcycleShopEtay.Pages.ShoppingCarts
                 return Page();
             }
 
-            _context.ShoppingCarts.Add(ShoppingCart);
+            _context.purchases.Add(Purchase);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
