@@ -21,11 +21,20 @@ namespace MotorcycleShopEtay.Pages.Purchases
 
         public IList<Purchase> Purchase { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            Purchase = await _context.purchases
-                .Include(p => p.Product)
-                .Include(p => p.ShoppingCart).ToListAsync();
+            IQueryable<Purchase> PurchasesIQ = from s in _context.purchases select s;
+            if(!String.IsNullOrEmpty(SearchString))
+                {
+                    PurchasesIQ=PurchasesIQ.Where(s => s.ShoppingCartId.ToString().Contains(SearchString));
+
+                }
+
+            Purchase = (IList<Purchase>)PurchasesIQ.Include(p => p.Product)
+                .Include(p => p.ShoppingCart).ToList(); 
+            //Purchase = await _context.purchases
+                //.Include(p => p.Product)
+               // .Include(p => p.ShoppingCart).ToListAsync();
         }
     }
 }

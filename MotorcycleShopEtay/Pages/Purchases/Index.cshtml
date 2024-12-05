@@ -5,11 +5,21 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>עסקאות</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form>
+    <div>
+        <p>
+                Find by shopping id:
+                <input type = "text" name="SearchString"/>
+                <input type ="submit" value="Search" class="btn btn-primary"/>
+                <a asp-page="./Index">Back to full list</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -26,7 +36,7 @@
 @foreach (var item in Model.Purchase) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.Discriminator)
+                @Html.DisplayFor(modelItem => item.Product.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ShoppingCart.Id)

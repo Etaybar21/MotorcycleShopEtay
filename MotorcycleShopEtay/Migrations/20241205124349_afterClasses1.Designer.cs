@@ -12,7 +12,7 @@ using MotorcycleShopEtay.Deta;
 namespace MotorcycleShopEtay.Migrations
 {
     [DbContext(typeof(MotorcycleShopContext))]
-    [Migration("20241204095935_afterClasses1")]
+    [Migration("20241205124349_afterClasses1")]
     partial class afterClasses1
     {
         /// <inheritdoc />

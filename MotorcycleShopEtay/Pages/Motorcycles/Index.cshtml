@@ -14,28 +14,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].Engine)
+                @Html.DisplayNameFor(model => model.Motorcycle[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].MaxSpeed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].NumGearShift)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].Gear)
+                @Html.DisplayNameFor(model => model.Motorcycle[0].Brend)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Motorcycle[0].Type)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].Name)
+                @Html.DisplayNameFor(model => model.Motorcycle[0].Engine)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Motorcycle[0].Brend)
+                @Html.DisplayNameFor(model => model.Motorcycle[0].NumGearShift)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motorcycle[0].Gear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motorcycle[0].MaxSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motorcycle[0].Color)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Motorcycle[0].Price)
@@ -47,28 +47,29 @@
 @foreach (var item in Model.Motorcycle) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Engine)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MaxSpeed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumGearShift)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gear)
+                @Html.DisplayFor(modelItem => item.Brend)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Engine)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Brend)
+                @Html.DisplayFor(modelItem => item.NumGearShift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxSpeed)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Color)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)

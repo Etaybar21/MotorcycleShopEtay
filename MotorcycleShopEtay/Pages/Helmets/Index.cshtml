@@ -14,6 +14,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Helmet[0].Brend)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Helmet[0].Name)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Helmet[0].Type)
             </th>
             <th>
@@ -21,12 +27,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Helmet[0].HelmetSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Helmet[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Helmet[0].Brend)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Helmet[0].Price)
@@ -38,6 +38,12 @@
 @foreach (var item in Model.Helmet) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Brend)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Type)
             </td>
             <td>
@@ -45,12 +51,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HelmetSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brend)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
