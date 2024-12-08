@@ -21,9 +21,17 @@ namespace MotorcycleShopEtay.Pages.Customers
 
         public IList<Customer> Customer { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            Customer = await _context.Customers.ToListAsync();
+            IQueryable<Customer> CustomersIQ = from k in _context.Customers select k;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                CustomersIQ = CustomersIQ.Where(k => k.CustomerID.ToString().Contains(SearchString));
+
+            }
+
+            Customer = await CustomersIQ.ToListAsync();
+            //Customer = await _context.Customers.ToListAsync();
         }
     }
 }

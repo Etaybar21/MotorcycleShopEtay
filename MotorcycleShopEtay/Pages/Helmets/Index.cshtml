@@ -10,14 +10,24 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<form>
+    <div>
+        <p>
+            Find by helmet name:
+            <input type="text" name="SearchString" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a asp-page="./Index">Back to full list</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Helmet[0].Brend)
+                @Html.DisplayNameFor(model => model.Helmet[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Helmet[0].Name)
+                @Html.DisplayNameFor(model => model.Helmet[0].Brend)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Helmet[0].Type)
@@ -38,10 +48,10 @@
 @foreach (var item in Model.Helmet) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Brend)
+                @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Brend)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Type)

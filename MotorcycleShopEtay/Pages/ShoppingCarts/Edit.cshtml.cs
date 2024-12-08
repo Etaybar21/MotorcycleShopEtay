@@ -36,7 +36,7 @@ namespace MotorcycleShopEtay.Pages.ShoppingCarts
                 return NotFound();
             }
             ShoppingCart = shoppingcart;
-           ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Id");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "CustomerID");
             return Page();
         }
 

@@ -21,9 +21,17 @@ namespace MotorcycleShopEtay.Pages.Helmets
 
         public IList<Helmet> Helmet { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            Helmet = await _context.Helmets.ToListAsync();
+            IQueryable<Helmet> HelmetsIQ = from d in _context.Helmets select d;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                HelmetsIQ = HelmetsIQ.Where(d => d.Name.ToString().Contains(SearchString));
+
+            }
+
+            Helmet = await HelmetsIQ.ToListAsync();
+            //Helmet = await _context.Helmets.ToListAsync();
         }
     }
 }

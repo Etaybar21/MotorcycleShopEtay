@@ -21,9 +21,17 @@ namespace MotorcycleShopEtay.Pages.Motorcycles
 
         public IList<Motorcycle> Motorcycle { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            Motorcycle = await _context.Motorcycles.ToListAsync();
+            IQueryable<Motorcycle> MotorcyclesIQ = from e in _context.Motorcycles select e;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                MotorcyclesIQ = MotorcyclesIQ.Where(e => e.Name.ToString().Contains(SearchString));
+
+            }
+
+            Motorcycle = await MotorcyclesIQ.ToListAsync();
+            //Motorcycle = await _context.Motorcycles.ToListAsync();
         }
     }
 }
