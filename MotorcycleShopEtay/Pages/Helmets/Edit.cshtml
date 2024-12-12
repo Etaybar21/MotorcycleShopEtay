@@ -14,22 +14,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Helmet.Type" class="control-label"></label>
-                <input asp-for="Helmet.Type" class="form-control" />
-                <span asp-validation-for="Helmet.Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Helmet.Color" class="control-label"></label>
-                <input asp-for="Helmet.Color" class="form-control" />
-                <span asp-validation-for="Helmet.Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Helmet.HelmetSize" class="control-label"></label>
-                <input asp-for="Helmet.HelmetSize" class="form-control" />
-                <span asp-validation-for="Helmet.HelmetSize" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Helmet.Id" />
-            <div class="form-group">
                 <label asp-for="Helmet.Name" class="control-label"></label>
                 <input asp-for="Helmet.Name" class="form-control" />
                 <span asp-validation-for="Helmet.Name" class="text-danger"></span>
@@ -39,6 +23,32 @@
                 <input asp-for="Helmet.Brend" class="form-control" />
                 <span asp-validation-for="Helmet.Brend" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Helmet.Type" class="control-label"></label>
+                <select asp-for="Helmet.Type" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Type</option>
+                    <option value=" Half">Half</option>
+                    <option value=" Full">Full</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.Color" class="control-label"></label>
+                <input asp-for="Helmet.Color" class="form-control" />
+                <span asp-validation-for="Helmet.Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Helmet.HelmetSize" class="control-label"></label>
+                <select asp-for="Helmet.HelmetSize" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Size</option>
+                    <option value=" XS">XS</option>
+                    <option value=" S">S</option>
+                    <option value=" M">M</option>
+                    <option value=" L">L</option>
+                    <option value=" XL">XL</option>
+                </select>
+            </div>
+            <input type="hidden" asp-for="Helmet.Id" />
             <div class="form-group">
                 <label asp-for="Helmet.Price" class="control-label"></label>
                 <input asp-for="Helmet.Price" class="form-control" />

@@ -12,6 +12,17 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
+            <input type="hidden" asp-for="Accessorie.Id" />
+            <div class="form-group">
+                <label asp-for="Accessorie.Name" class="control-label"></label>
+                <input asp-for="Accessorie.Name" class="form-control" />
+                <span asp-validation-for="Accessorie.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Accessorie.Brend" class="control-label"></label>
+                <input asp-for="Accessorie.Brend" class="form-control" />
+                <span asp-validation-for="Accessorie.Brend" class="text-danger"></span>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Accessorie.Description" class="control-label"></label>
@@ -28,19 +39,8 @@
                     <option value=" L">L</option>
                     <option value=" XL">XL</option>
                 </select>
-
             </div>
-            <input type="hidden" asp-for="Accessorie.Id" />
-            <div class="form-group">
-                <label asp-for="Accessorie.Name" class="control-label"></label>
-                <input asp-for="Accessorie.Name" class="form-control" />
-                <span asp-validation-for="Accessorie.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Accessorie.Brend" class="control-label"></label>
-                <input asp-for="Accessorie.Brend" class="form-control" />
-                <span asp-validation-for="Accessorie.Brend" class="text-danger"></span>
-            </div>
+                   
             <div class="form-group">
                 <label asp-for="Accessorie.Price" class="control-label"></label>
                 <input asp-for="Accessorie.Price" class="form-control" />

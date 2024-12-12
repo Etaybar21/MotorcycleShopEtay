@@ -21,9 +21,17 @@ namespace MotorcycleShopEtay.Pages.ShoppingCarts
 
         public IList<ShoppingCart> ShoppingCart { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            ShoppingCart = await _context.ShoppingCarts
+            IQueryable<ShoppingCart> ShoppingCartsIQ = from s in _context.ShoppingCarts select s;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                ShoppingCartsIQ = ShoppingCartsIQ.Where(s => s.Id.ToString().Contains(SearchString));
+
+            }
+
+            //ShoppingCart = await ShoppingCartsIQ.ToListAsync();
+            ShoppingCart = await ShoppingCartsIQ
                 .Include(s => s.Customer).ToListAsync();
         }
     }

@@ -25,8 +25,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Type" class="control-label"></label>
-                <input asp-for="Motorcycle.Type" class="form-control" />
-                <span asp-validation-for="Motorcycle.Type" class="text-danger"></span>
+                <select asp-for="Motorcycle.Type" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Type</option>
+                    <option value=" Motocross">Motocross</option>
+                    <option value=" Road">Road</option>
+                    <option value=" Supermoto">Supermoto</option>
+                    <option value=" City">City</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Engine" class="control-label"></label>
@@ -40,13 +45,19 @@
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Gear" class="control-label"></label>
-                <input asp-for="Motorcycle.Gear" class="form-control" />
-                <span asp-validation-for="Motorcycle.Gear" class="text-danger"></span>
+                <select asp-for="Motorcycle.Gear" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Gear</option>
+                    <option value=" Auto">Auto</option>
+                    <option value=" Manual">Manual</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.NumGearShift" class="control-label"></label>
-                <input asp-for="Motorcycle.NumGearShift" class="form-control" />
-                <span asp-validation-for="Motorcycle.NumGearShift" class="text-danger"></span>
+                <select asp-for="Motorcycle.NumGearShift" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Gear</option>
+                    <option value=" 5">5</option>
+                    <option value=" 6">6</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Color" class="control-label"></label>

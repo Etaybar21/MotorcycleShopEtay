@@ -51,8 +51,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Customer.DriverLisence" class="control-label"></label>
-                <input asp-for="Customer.DriverLisence" class="form-control" />
-                <span asp-validation-for="Customer.DriverLisence" class="text-danger"></span>
+                <select asp-for="Customer.DriverLisence" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Driver Lisence</option>
+                    <option value=" A">A</option>
+                    <option value=" A1">A1</option>
+                    <option value=" A2">A2</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

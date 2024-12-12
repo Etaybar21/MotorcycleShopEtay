@@ -21,9 +21,17 @@ namespace MotorcycleShopEtay.Pages.Accessories
 
         public IList<Accessorie> Accessorie { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string SearchString)
         {
-            Accessorie = await _context.Accessories.ToListAsync();
+            IQueryable<Accessorie> AccessoriesIQ = from e in _context.Accessories select e;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                AccessoriesIQ = AccessoriesIQ.Where(e => e.Name.ToString().Contains(SearchString));
+
+            }
+
+            Accessorie = await AccessoriesIQ.ToListAsync();
+            //Accessorie = await _context.Accessories.ToListAsync();
         }
     }
 }

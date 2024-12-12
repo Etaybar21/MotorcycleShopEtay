@@ -12,6 +12,27 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
+            <input type="hidden" asp-for="Motorcycle.Id" />
+            <div class="form-group">
+                <label asp-for="Motorcycle.Name" class="control-label"></label>
+                <input asp-for="Motorcycle.Name" class="form-control" />
+                <span asp-validation-for="Motorcycle.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Brend" class="control-label"></label>
+                <input asp-for="Motorcycle.Brend" class="form-control" />
+                <span asp-validation-for="Motorcycle.Brend" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Motorcycle.Type" class="control-label"></label>
+                <select asp-for="Motorcycle.Type" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Type</option>
+                    <option value=" Motocross">Motocross</option>
+                    <option value=" Road">Road</option>
+                    <option value=" Supermoto">Supermoto</option>
+                    <option value=" City">City</option>
+                </select>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Engine" class="control-label"></label>
@@ -24,35 +45,25 @@
                 <span asp-validation-for="Motorcycle.MaxSpeed" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Motorcycle.Gear" class="control-label"></label>
+                <select asp-for="Motorcycle.Gear" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Gear</option>
+                    <option value=" Auto">Auto</option>
+                    <option value=" Manual">Manual</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label asp-for="Motorcycle.NumGearShift" class="control-label"></label>
-                <input asp-for="Motorcycle.NumGearShift" class="form-control" />
-                <span asp-validation-for="Motorcycle.NumGearShift" class="text-danger"></span>
+                <select asp-for="Motorcycle.NumGearShift" class="form-control" asp-items="ViewBag.size">
+                    <option>Select Gear</option>
+                    <option value=" 5">5</option>
+                    <option value=" 6">6</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Color" class="control-label"></label>
                 <input asp-for="Motorcycle.Color" class="form-control" />
                 <span asp-validation-for="Motorcycle.Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Motorcycle.Gear" class="control-label"></label>
-                <input asp-for="Motorcycle.Gear" class="form-control" />
-                <span asp-validation-for="Motorcycle.Gear" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Motorcycle.Type" class="control-label"></label>
-                <input asp-for="Motorcycle.Type" class="form-control" />
-                <span asp-validation-for="Motorcycle.Type" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Motorcycle.Id" />
-            <div class="form-group">
-                <label asp-for="Motorcycle.Name" class="control-label"></label>
-                <input asp-for="Motorcycle.Name" class="form-control" />
-                <span asp-validation-for="Motorcycle.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Motorcycle.Brend" class="control-label"></label>
-                <input asp-for="Motorcycle.Brend" class="form-control" />
-                <span asp-validation-for="Motorcycle.Brend" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Motorcycle.Price" class="control-label"></label>
